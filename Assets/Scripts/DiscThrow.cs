@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DiscThrow : MonoBehaviour
@@ -34,7 +35,7 @@ public class DiscThrow : MonoBehaviour
     {
         throwReady = false;
         var instance = Instantiate(discPrefab, discSpawn.transform.position, Quaternion.identity);
-        instance.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Acceleration);
+        instance.GetComponent<Rigidbody>().AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 
     public void DiscReady()
@@ -44,6 +45,7 @@ public class DiscThrow : MonoBehaviour
 
     public void RetrieveDisc()
     {
-        
+        Destroy(GameObject.Find("Disc(Clone)"));
+        throwReady = true;
     }
 }
