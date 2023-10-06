@@ -7,6 +7,7 @@ public class DiscBehaviour : MonoBehaviour
     public Color32[] discColors;
     public bool canChangeColor;
     public Material discMaterial;
+    public GameObject discPrefab;
 
     private float colourChangeTimer;
     
@@ -41,13 +42,6 @@ public class DiscBehaviour : MonoBehaviour
 
     public void ChangeDiscColor()
     {
-        /*
-        if (canChangeColor == true)
-        {
-            discMaterial.color = discColors[Random.Range(0, discColors.Length)];
-            StartCoroutine("ColourTimer");
-        } */
-
         if (colourChangeTimer > 5)
         {
             Debug.Log("Timer is above 5");
@@ -55,11 +49,4 @@ public class DiscBehaviour : MonoBehaviour
             colourChangeTimer = 0;
         }
     }
-    /*
-    IEnumerator ColourTimer()
-    {
-        canChangeColor = false;
-        yield return new WaitForSeconds(5f);
-        canChangeColor = true;
-    } */
 }
