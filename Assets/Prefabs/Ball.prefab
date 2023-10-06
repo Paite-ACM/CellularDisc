@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2189235993828098724}
+  - component: {fileID: 3981363884716563190}
   - component: {fileID: 2189235993828098725}
   - component: {fileID: 2189235993828098726}
   - component: {fileID: 2022198084769389387}
@@ -35,6 +36,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3981363884716563190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189235993828098728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3803ac540d4544f82f6dee900b7dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  discColors: []
+  canChangeColor: 0
+  discMaterial: {fileID: 2100000, guid: aa6ad73764e9e5d41beb3a3d2ed4865b, type: 2}
+  discPrefab: {fileID: 2189235993828098728}
 --- !u!33 &2189235993828098725
 MeshFilter:
   m_ObjectHideFlags: 0

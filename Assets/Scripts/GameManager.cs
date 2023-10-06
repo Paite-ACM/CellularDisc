@@ -11,11 +11,23 @@ public class GameManager : MonoBehaviour
     private float changeColourTimer;
     [SerializeField] private float colourChangeTimerMax; // the value the timer reaches when a colour change happens
 
+    [SerializeField] private Color32[] allColours;
+
     // Start is called before the first frame update
     void Start()
     {
+        allColours = new Color32[4];
+        SetColours();
         throwState = FindObjectOfType<DiscThrow>();
         FindPanels();
+    }
+
+    public void SetColours()
+    {
+        allColours[0] = new Color32(255, 101, 80, 255);
+        allColours[1] = new Color32(0, 180, 80, 255);
+        allColours[2] = new Color32(136, 0, 255, 255);
+        allColours[3] = new Color32(255, 255, 0, 255);
     }
 
     // Update is called once per frame
@@ -36,18 +48,16 @@ public class GameManager : MonoBehaviour
         }
 
         if (changeColourTimer > colourChangeTimerMax)
-        {
-            int len = currentDisc.GetComponent<DiscBehaviour>().discColors.Length;
-            
+        {   
             if (currentDisc != null)
             {
-                currentDisc.GetComponent<MeshRenderer>().material.color = currentDisc.GetComponent<DiscBehaviour>().discColors[Random.Range(0, len)];
+                currentDisc.GetComponent<MeshRenderer>().material.color = allColours[Random.Range(0, allColours.Length)];
             }
             
             // change all platform colours
             for (int i = 0; i < allPanels.Count; i++)
             {
-                allPanels[i].GetComponent<MeshRenderer>().material.color = allPanels[i].GetComponent<PanelChanges>().PanelColours[Random.Range(0, len)];
+                allPanels[i].GetComponent<MeshRenderer>().material.color = allColours[Random.Range(0, allColours.Length)];
             }
 
             changeColourTimer = 0;
