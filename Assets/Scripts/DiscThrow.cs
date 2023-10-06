@@ -13,6 +13,11 @@ public class DiscThrow : MonoBehaviour
     private float speed;
     private bool throwReady;
 
+    public bool ThrowReady
+    {
+        get { return throwReady; }
+    }
+
     public void Start()
     {
         throwReady = true;

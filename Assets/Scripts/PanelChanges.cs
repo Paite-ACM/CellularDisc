@@ -33,17 +33,17 @@ public class PanelChanges : MonoBehaviour
 
     public void ChangePanelColour()
     {
-        if (CanChangeColour == true)
+        /*if (CanChangeColour == true)
         {                         
             PanelMaterial.color = PanelColours[Random.Range(0, PanelColours.Length)];               
             StartCoroutine("ColourTimer");
-        }
+        } */
     }
 
-    IEnumerator ColourTimer()
+    /*IEnumerator ColourTimer()
     {
         CanChangeColour = false;
         yield return new WaitForSeconds(5f);
         CanChangeColour = true;
-    }
+    } */
 }

@@ -37,16 +37,23 @@ public class DiscBehaviour : MonoBehaviour
 
     private void Update()
     {
-        colourChangeTimer += Time.deltaTime;
+       // colourChangeTimer += Time.deltaTime;
     }
 
     public void ChangeDiscColor()
     {
-        if (colourChangeTimer > 5)
+        /*
+        if (canChangeColor == true)
+        {
+            discMaterial.color = discColors[Random.Range(0, discColors.Length)];
+            StartCoroutine("ColourTimer");
+        } */
+
+        /*if (colourChangeTimer > 5)
         {
             Debug.Log("Timer is above 5");
             discMaterial.color = discColors[Random.Range(0, discColors.Length)];
             colourChangeTimer = 0;
-        }
+        } */
     }
 }
