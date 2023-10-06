@@ -12,6 +12,7 @@ public class DiscThrow : MonoBehaviour
     [SerializeField]
     private float speed;
     private bool throwReady;
+    public Camera cam;
 
     public bool ThrowReady
     {
@@ -21,13 +22,14 @@ public class DiscThrow : MonoBehaviour
     public void Start()
     {
         throwReady = true;
+        cam = Camera.main;
     }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && throwReady)
         {
-            ThrowDisc();
+            CreateAndThrowBall();
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && !throwReady)
@@ -36,11 +38,16 @@ public class DiscThrow : MonoBehaviour
         }
     }
 
-    public void ThrowDisc()
+    public void CreateAndThrowBall()
     {
         throwReady = false;
-        var instance = Instantiate(discPrefab, discSpawn.transform.position, Quaternion.identity);
-        instance.GetComponent<Rigidbody>().AddForce(transform.forward * speed, ForceMode.Impulse);
+        GameObject instance = Instantiate(discPrefab, discSpawn.position, cam.transform.localRotation);
+        ThrowBall(instance);
+    }
+    
+    public void ThrowBall(GameObject go)
+    {
+        go.GetComponent<Rigidbody>().AddForce(cam.transform.forward * speed, ForceMode.Impulse);
     }
 
     public void DiscReady()
@@ -50,7 +57,7 @@ public class DiscThrow : MonoBehaviour
 
     public void RetrieveDisc()
     {
-        Destroy(GameObject.Find("Disc(Clone)"));
+        Destroy(GameObject.Find("Ball(Clone)"));
         throwReady = true;
     }
 }

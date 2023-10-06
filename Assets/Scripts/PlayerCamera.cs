@@ -6,7 +6,7 @@ public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] private float xSensitivity;
     [SerializeField] private float ySensitivity;
-    public Transform discSpawn;
+    public Transform ballSpawn;
 
     [SerializeField] private Transform orientation;
     //[SerializeField] private Transform theGun;
@@ -35,7 +35,6 @@ public class PlayerCamera : MonoBehaviour
 
         // rotate cam, orientation and gun
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        discSpawn.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
         //theGun.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
