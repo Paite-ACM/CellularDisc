@@ -1231,6 +1231,7 @@ Transform:
   - {fileID: 1665738153}
   - {fileID: 1363233458}
   - {fileID: 1021866173}
+  - {fileID: 859673070}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1671,7 +1672,6 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &833777942
---- !u!1 &859673068
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1679,51 +1679,32 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 833777943}
+  - component: {fileID: 859673070}
+  - component: {fileID: 833777944}
   - component: {fileID: 833777946}
   - component: {fileID: 833777945}
-  - component: {fileID: 833777944}
   m_Layer: 0
-  m_Name: Panel (7)
-  - component: {fileID: 859673070}
-  - component: {fileID: 859673069}
-  m_Layer: 0
-  m_Name: GameManager
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &833777943
---- !u!114 &859673069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859673068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35f1eebd13a9414ea8119fed549c51b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allPanels: []
-  colourChangeTimerMax: 5
---- !u!4 &859673070
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833777942}
-  m_LocalRotation: {x: 0.5000007, y: 0.49999928, z: -0.49999928, w: 0.5000007}
-  m_LocalPosition: {x: 2.71, y: 2.294, z: -4.69}
-  m_LocalScale: {x: 4.1664, y: 0.20832, z: 4.1664}
+  m_GameObject: {fileID: 859673068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 559777047}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &833777944
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1787,15 +1768,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833777942}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &859673068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833777943}
+  - component: {fileID: 859673069}
+  m_Layer: 0
+  m_Name: Panel (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &859673069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859673068}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.19098, y: 1.3736905, z: -0.3244195}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35f1eebd13a9414ea8119fed549c51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allPanels: []
+  colourChangeTimerMax: 5
+--- !u!4 &859673070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833777942}
+  m_LocalRotation: {x: 0.5000007, y: 0.49999928, z: -0.49999928, w: 0.5000007}
+  m_LocalPosition: {x: 2.71, y: 2.294, z: -4.69}
+  m_LocalScale: {x: 4.1664, y: 0.20832, z: 4.1664}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 559777047}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
 --- !u!1 &882418067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,8 +3300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1610157175}
-  - component: {fileID: 1610157174}
-  - component: {fileID: 1610157173}
+  - component: {fileID: 1610157176}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3291,39 +3308,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1610157173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610157172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8b8a5c7e86b08646a0e988188ea536f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 1959004421}
-  PanelMaterial: {fileID: 2100000, guid: cc60f7970a4db534fbcba8b72e7b84a8, type: 2}
-  PanelColours: []
-  CanChangeColour: 0
---- !u!114 &1610157174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610157172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3803ac540d4544f82f6dee900b7dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  discColors: []
-  canChangeColor: 0
-  discMaterial: {fileID: 2100000, guid: aa6ad73764e9e5d41beb3a3d2ed4865b, type: 2}
-  discPrefab: {fileID: 2189235993828098728, guid: 4d9681a069c3aa341982b71a2d7671e6,
-    type: 3}
 --- !u!4 &1610157175
 Transform:
   m_ObjectHideFlags: 0
@@ -3339,6 +3323,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610157176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610157172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35f1eebd13a9414ea8119fed549c51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allPanels: []
+  colourChangeTimerMax: 5
 --- !u!1 &1641001660
 GameObject:
   m_ObjectHideFlags: 0
