@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 100208197}
   m_Layer: 0
   m_Name: Panel (20)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 170675556}
   m_Layer: 0
   m_Name: Panel (22)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 290166431}
   m_Layer: 0
   m_Name: Panel (2)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 307192744}
   m_Layer: 0
   m_Name: Panel (17)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1064,7 +1064,7 @@ GameObject:
   - component: {fileID: 543313372}
   m_Layer: 0
   m_Name: Panel (21)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 544312980}
   m_Layer: 0
   m_Name: Panel (18)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 559777047}
   m_Layer: 0
   m_Name: Panels
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1450,7 +1450,7 @@ GameObject:
   - component: {fileID: 693393424}
   m_Layer: 0
   m_Name: Panel (13)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 770993227}
   m_Layer: 0
   m_Name: Panel (8)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1678,7 +1678,7 @@ GameObject:
   - component: {fileID: 779184615}
   m_Layer: 0
   m_Name: Panel (24)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1939,7 +1939,7 @@ GameObject:
   - component: {fileID: 971547990}
   m_Layer: 0
   m_Name: Panel (12)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2053,7 +2053,7 @@ GameObject:
   - component: {fileID: 1021866177}
   m_Layer: 0
   m_Name: Panel (27)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2167,7 +2167,7 @@ GameObject:
   - component: {fileID: 1089432019}
   m_Layer: 0
   m_Name: Panel (14)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2281,7 +2281,7 @@ GameObject:
   - component: {fileID: 1126635241}
   m_Layer: 0
   m_Name: Panel (6)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2395,7 +2395,7 @@ GameObject:
   - component: {fileID: 1184898327}
   m_Layer: 0
   m_Name: Panel (5)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2509,7 +2509,7 @@ GameObject:
   - component: {fileID: 1211682785}
   m_Layer: 0
   m_Name: Panel (4)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2623,7 +2623,7 @@ GameObject:
   - component: {fileID: 1214211187}
   m_Layer: 0
   m_Name: Panel (19)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2852,7 +2852,7 @@ GameObject:
   - component: {fileID: 1363233462}
   m_Layer: 0
   m_Name: Panel (26)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2966,7 +2966,7 @@ GameObject:
   - component: {fileID: 1365479685}
   m_Layer: 0
   m_Name: Panel (23)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3080,7 +3080,7 @@ GameObject:
   - component: {fileID: 1372227848}
   m_Layer: 0
   m_Name: Panel (9)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3194,7 +3194,7 @@ GameObject:
   - component: {fileID: 1472549169}
   m_Layer: 0
   m_Name: Panel (1)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3308,7 +3308,7 @@ GameObject:
   - component: {fileID: 1523910231}
   m_Layer: 0
   m_Name: Panel (10)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3422,7 +3422,7 @@ GameObject:
   - component: {fileID: 1602876585}
   m_Layer: 0
   m_Name: Panel (16)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3583,7 +3583,7 @@ GameObject:
   - component: {fileID: 1641001665}
   m_Layer: 0
   m_Name: Panel (11)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3697,7 +3697,7 @@ GameObject:
   - component: {fileID: 1665738157}
   m_Layer: 0
   m_Name: Panel (25)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3811,7 +3811,7 @@ GameObject:
   - component: {fileID: 1780493585}
   m_Layer: 0
   m_Name: Panel (3)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4021,7 +4021,7 @@ GameObject:
   - component: {fileID: 1824950068}
   m_Layer: 0
   m_Name: Panel (15)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4135,7 +4135,7 @@ GameObject:
   - component: {fileID: 1872536597}
   m_Layer: 0
   m_Name: Panel (28)
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4249,7 +4249,7 @@ GameObject:
   - component: {fileID: 1959004426}
   m_Layer: 0
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
