@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // TODO: Remove most of the stuff in this and the panel change script as it is no longer in use
@@ -11,8 +12,8 @@ public class DiscBehaviour : MonoBehaviour
     public GameObject discPrefab;
 
     private float colourChangeTimer;
-    
 
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class DiscBehaviour : MonoBehaviour
         discColors = new Color32[4];
         canChangeColor = true;
         SetColours();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void SetColours()
@@ -33,7 +35,7 @@ public class DiscBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         ChangeDiscColor();
-        Debug.Log(GetComponent<MeshRenderer>().material.color);
+        //Debug.Log(GetComponent<MeshRenderer>().material.color);
     }
 
     private void Update()
@@ -56,5 +58,27 @@ public class DiscBehaviour : MonoBehaviour
             discMaterial.color = discColors[Random.Range(0, discColors.Length)];
             colourChangeTimer = 0;
         } */
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision test");
+        switch (collision.gameObject.tag)
+        {
+            case "Panel":
+                // colour check
+                if (collision.gameObject.GetComponent<MeshRenderer>().material.color == GetComponent<MeshRenderer>().material.color)
+                {
+                    Debug.Log("Colour match!");
+                    gameManager.IncreaseScore();
+                }
+                else
+                {
+                    Debug.Log("Colour does not match");
+                    gameManager.score = 0f;
+                    Debug.Log(gameManager.score);
+                }
+                break;
+        }
     }
 }
