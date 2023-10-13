@@ -12,8 +12,8 @@ public class DiscBehaviour : MonoBehaviour
     public GameObject discPrefab;
 
     private float colourChangeTimer;
-    
 
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,7 @@ public class DiscBehaviour : MonoBehaviour
         discColors = new Color32[4];
         canChangeColor = true;
         SetColours();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void SetColours()
@@ -69,10 +70,13 @@ public class DiscBehaviour : MonoBehaviour
                 if (collision.gameObject.GetComponent<MeshRenderer>().material.color == GetComponent<MeshRenderer>().material.color)
                 {
                     Debug.Log("Colour match!");
+                    gameManager.IncreaseScore();
                 }
                 else
                 {
                     Debug.Log("Colour does not match");
+                    gameManager.score = 0f;
+                    Debug.Log(gameManager.score);
                 }
                 break;
         }

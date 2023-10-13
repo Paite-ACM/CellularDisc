@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Color32[] allColours;
 
+    public float score;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         SetColours();
         throwState = FindObjectOfType<DiscThrow>();
         FindPanels();
+        score = 0f;
     }
 
     public void SetColours()
@@ -73,5 +75,13 @@ public class GameManager : MonoBehaviour
         {
             allPanels.Add(current.gameObject);
         }
+    }
+    /// <summary>
+    /// Will increase score variable
+    /// </summary>
+    public void IncreaseScore()
+    {
+        score++;
+        Debug.Log(score);
     }
 }
