@@ -6,11 +6,13 @@ using UnityEngine;
 public class DiscThrow : MonoBehaviour
 {
     [SerializeField]
-    private GameObject discPrefab;
+    private GameObject discPrefab, newBall;
     [SerializeField]
-    private Transform discSpawn;
+    private Transform discSpawn, playerPos;
     [SerializeField]
-    private float speed;
+    Rigidbody rb;
+    [SerializeField]
+    private float speed, returnSpeed;
     private bool throwReady;
     public Camera cam;
 
@@ -34,20 +36,20 @@ public class DiscThrow : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && !throwReady)
         {
-            RetrieveDisc();
+            RetrieveDisc(newBall);
         }
     }
 
     public void CreateAndThrowBall()
     {
         throwReady = false;
-        GameObject instance = Instantiate(discPrefab, discSpawn.position, cam.transform.localRotation);
-        ThrowBall(instance);
+        newBall = Instantiate(discPrefab, discSpawn.position, cam.transform.localRotation);
+        ThrowBall(newBall);
     }
     
-    public void ThrowBall(GameObject go)
+    public void ThrowBall(GameObject goForward)
     {
-        go.GetComponent<Rigidbody>().AddForce(cam.transform.forward * speed, ForceMode.Impulse);
+        goForward.GetComponent<Rigidbody>().AddForce(cam.transform.forward * speed, ForceMode.Impulse);
     }
 
     public void DiscReady()
@@ -55,9 +57,13 @@ public class DiscThrow : MonoBehaviour
         throwReady = true;
     }
 
-    public void RetrieveDisc()
+    public void RetrieveDisc(GameObject goBack)
     {
-        Destroy(GameObject.Find("Ball(Clone)"));
+        
+
+        //Destroy(newBall);
         throwReady = true;
     }
+
+
 }

@@ -4003,8 +4003,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   discPrefab: {fileID: 2189235993828098728, guid: 4d9681a069c3aa341982b71a2d7671e6,
     type: 3}
+  newBall: {fileID: 0}
   discSpawn: {fileID: 378353125}
-  speed: 5
+  playerPos: {fileID: 1789692535}
+  rb: {fileID: 2022198084769389387, guid: 4d9681a069c3aa341982b71a2d7671e6, type: 3}
+  speed: 15
+  returnSpeed: 15
   cam: {fileID: 0}
 --- !u!1 &1824950063
 GameObject:
