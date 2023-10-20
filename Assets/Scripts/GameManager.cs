@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public float score;
     public float combo;
+
+    [SerializeField] private float baseScoreGive; // the value representing the minimum score given by a correct panel
     // Start is called before the first frame update
     void Start()
     {
@@ -67,13 +69,13 @@ public class GameManager : MonoBehaviour
             changeColourTimer = 0;
         }
 
-        IncreaseScore();
+        //IncreaseScore();
     }
 
     // will put every panel gameobject into the list
     private void FindPanels()
     {
-        var panels = FindObjectsOfType<PanelChanges>();
+        var panels = FindObjectsOfType<Panel>();
 
         foreach (var current in panels)
         {
@@ -91,6 +93,15 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore()
     {
-        score += combo * combo;
+        // multiplying by zero is weird don't do it
+        if (combo > 0)
+        {
+            score += baseScoreGive * combo;
+        }
+        else
+        {
+            score += baseScoreGive;
+        }
+        
     }
 }

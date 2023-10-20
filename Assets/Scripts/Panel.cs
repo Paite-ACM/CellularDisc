@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelChanges : MonoBehaviour
+public class Panel : MonoBehaviour
 {
-    public GameObject Panel;
+    public GameObject panel;
 
    
 
@@ -16,6 +16,9 @@ public class PanelChanges : MonoBehaviour
     public Color[] PanelColours;
 
     public bool CanChangeColour;
+
+    public float panelHealth = 2f;
+
     // Start is called before the first frame update
     void Start()
     {

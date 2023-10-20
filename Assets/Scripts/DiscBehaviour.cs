@@ -69,13 +69,17 @@ public class DiscBehaviour : MonoBehaviour
                 // colour check
                 if (collision.gameObject.GetComponent<MeshRenderer>().material.color == GetComponent<MeshRenderer>().material.color)
                 {
+                    // colours match
                     Debug.Log("Colour match!");
                     gameManager.IncreaseCombo();
+                    gameManager.IncreaseScore();
                 }
                 else
                 {
+                    // colours don't match
                     Debug.Log("Colour does not match");
                     gameManager.combo = 0f;
+                    collision.gameObject.GetComponent<Panel>().panelHealth -= 1f;
                     Debug.Log(gameManager.combo);
                 }
                 break;
