@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color32[] allColours;
 
     public float score;
+    public float combo;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         throwState = FindObjectOfType<DiscThrow>();
         FindPanels();
         score = 0f;
+        combo = 0f;
     }
 
     public void SetColours()
@@ -64,6 +66,8 @@ public class GameManager : MonoBehaviour
 
             changeColourTimer = 0;
         }
+
+        IncreaseScore();
     }
 
     // will put every panel gameobject into the list
@@ -79,9 +83,14 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Will increase score variable
     /// </summary>
+    public void IncreaseCombo()
+    {
+        combo++;
+        Debug.Log(combo);
+    }
+
     public void IncreaseScore()
     {
-        score++;
-        Debug.Log(score);
+        score += combo * combo;
     }
 }
