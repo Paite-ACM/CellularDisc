@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float baseScoreGive; // the value representing the minimum score given by a correct panel
 
     public bool IfLostRound;
+    public bool canDisplayMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         score = 0f;
         combo = 0f;
         IfLostRound = false;
+        canDisplayMenu = true;
     }
 
     public void SetColours()
