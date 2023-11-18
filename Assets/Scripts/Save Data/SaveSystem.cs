@@ -10,7 +10,7 @@ public static class SaveSystem
         // saves data of the player (including lvl, health, xp, etc)
         BinaryFormatter formatter = new BinaryFormatter();
         string path;
-        path = Application.persistentDataPath + "/PlayerData.";
+        path = Application.persistentDataPath + "/PlayerData.cba";
         
         FileStream stream = new FileStream(path, FileMode.Create);
 
@@ -25,7 +25,7 @@ public static class SaveSystem
     {
         // making the same variable again like a boss
         string path;
-        path = Application.persistentDataPath + "/PlayerData.pschwrd";
+        path = Application.persistentDataPath + "/PlayerData.cba";
 
 
         if (File.Exists(path))
@@ -79,7 +79,7 @@ public static class SaveSystem
     // check if a save file for the player exists and if it doesn't, return false 
     public static bool DoesPlayerFileExist()
     {
-        string path = Application.persistentDataPath + "/PlayerData.pschwrd";
+        string path = Application.persistentDataPath + "/PlayerData.cba";
         if (File.Exists(path))
         {
             Debug.Log("exists");
@@ -109,7 +109,7 @@ public static class SaveSystem
 
     public static bool DoesStorageFileExist()
     {
-        string path = Application.persistentDataPath + "/StorageData.pschwrd";
+        string path = Application.persistentDataPath + "/PlayerData.cba";
 
         if (File.Exists(path))
         {
@@ -129,7 +129,7 @@ public static class SaveSystem
         string path;
 
 
-        path = Application.persistentDataPath + "/PlayerData.pschwrd";
+        path = Application.persistentDataPath + "/PlayerData.cba";
 
         if (!File.Exists(path))
         {
@@ -175,7 +175,7 @@ public static class SaveSystem
 
         string path;
         
-        path = Application.persistentDataPath + "/PlayerData.pschwrd";
+        path = Application.persistentDataPath + "/PlayerData.cba";
         
         File.Delete(path);
     }
