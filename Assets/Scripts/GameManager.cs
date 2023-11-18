@@ -126,5 +126,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   
+   // load player save data
+   public void LoadData()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        score = data.score;
+    }
+
+    // save player data
+    public void SaveData()
+    {
+        SaveSystem.SaveGame(this);
+    }
 }
