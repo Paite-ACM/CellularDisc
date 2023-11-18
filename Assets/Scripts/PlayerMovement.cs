@@ -183,4 +183,25 @@ public class PlayerMovement : MonoBehaviour
         exitingSlope = false;
     }
 
+    /// <summary>
+    /// When the game ends, player movement will freeze and the player will not be able to jump
+    /// </summary>
+    public void StopPlayerMoving()
+    {
+        horizontal = 0f;
+        vertical = 0f;
+        movementSpeed = 0f;
+        jumpReady = false;
+    }
+
+    
+    private void OnEnable()
+    {
+        GameManager.GameEnded += StopPlayerMoving;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.GameEnded -= StopPlayerMoving;
+    }
 }

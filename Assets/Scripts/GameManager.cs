@@ -20,6 +20,13 @@ public class GameManager : MonoBehaviour
 
     public bool IfLostRound;
     public bool canDisplayMenu;
+
+    public delegate void EndsGame();
+    public static event EndsGame GameEnded;
+
+    public bool gameHasEnded;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +38,7 @@ public class GameManager : MonoBehaviour
         combo = 0f;
         IfLostRound = false;
         canDisplayMenu = true;
+        gameHasEnded = false;
     }
 
     public void SetColours()
@@ -106,7 +114,17 @@ public class GameManager : MonoBehaviour
         else
         {
             score += baseScoreGive;
-        }
-        
+        }       
     }
+
+    // if statement can be changed to be linked to player health later
+    public void GameFinished()
+    {
+        if (gameHasEnded == true)
+        {
+            GameEnded?.Invoke();
+        }
+    }
+
+   
 }
