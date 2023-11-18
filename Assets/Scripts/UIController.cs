@@ -22,11 +22,14 @@ public class UIController : MonoBehaviour
         UpdateComboDisplay();
     }
 
+
+    //Updates and displays the score
     public void UpdateScoreDisplay()
     {
         ScoreDisplay.text = "Score:" + gameManager.score;
     }
 
+    //Updates and displays the combo
     public void UpdateComboDisplay()
     {
         ComboDisplay.text = "Combo:" + gameManager.combo;

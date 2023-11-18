@@ -31,7 +31,7 @@ public class Panel : MonoBehaviour
     void Update()
     {
         ChangePanelColour();
-
+        DestroyPanel();
     }
 
     public void ChangePanelColour()
@@ -49,4 +49,13 @@ public class Panel : MonoBehaviour
         yield return new WaitForSeconds(5f);
         CanChangeColour = true;
     } */
+
+    // Will destroy panels that have 0 health
+    public void DestroyPanel()
+    {
+        if (panelHealth < 0f)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
