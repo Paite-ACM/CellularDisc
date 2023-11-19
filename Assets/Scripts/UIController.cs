@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -33,5 +34,13 @@ public class UIController : MonoBehaviour
     public void UpdateComboDisplay()
     {
         ComboDisplay.text = "Combo:" + gameManager.combo;
+    }
+
+    public void SaveAndQuitButton()
+    {
+        gameManager.SaveData();
+
+        // me when no main menu scene yet
+        //SceneManager.LoadScene("");
     }
 }
