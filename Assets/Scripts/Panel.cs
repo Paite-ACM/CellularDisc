@@ -21,8 +21,7 @@ public class Panel : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-
+    {      
         CanChangeColour = true;
 
     }
@@ -53,8 +52,8 @@ public class Panel : MonoBehaviour
     // Will destroy panels that have 0 health
     public void DestroyPanel()
     {
-        if (panelHealth < 0f)
-        {
+        if (panelHealth <= 0f)
+        {           
             Destroy(gameObject);
         }
     }
