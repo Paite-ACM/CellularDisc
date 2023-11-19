@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
     public GameObject UpgradesMenu;
     public Button backToMainMenuButton;
     public GameObject GameOverScreen;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +77,7 @@ public class MenuManager : MonoBehaviour
     //Exits the game entirely, is supposed to save and then quit, so needs save system 
     public void ExitButton()
     {
+        SaveSystem.SaveGame(gameManager);
         Application.Quit();
     }
 

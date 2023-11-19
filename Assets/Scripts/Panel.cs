@@ -19,11 +19,13 @@ public class Panel : MonoBehaviour
 
     public float panelHealth = 2f;
 
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {      
         CanChangeColour = true;
-
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -53,8 +55,12 @@ public class Panel : MonoBehaviour
     public void DestroyPanel()
     {
         if (panelHealth <= 0f)
-        {           
-            Destroy(gameObject);
+        {
+            for (int i = 0; i < gameManager.allPanels.Count; i++)
+            {
+                
+                Destroy(gameObject);
+            }
         }
     }
 }

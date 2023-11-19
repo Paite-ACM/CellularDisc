@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private GameObject currentDisc;
     private DiscThrow throwState;
-    [SerializeField] private List<GameObject> allPanels;
+    public List<GameObject> allPanels;
 
     private float changeColourTimer;
     [SerializeField] private float colourChangeTimerMax; // the value the timer reaches when a colour change happens
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public float combo;
     public float highScore;
 
-    [SerializeField] private float baseScoreGive; // the value representing the minimum score given by a correct panel
+   public float baseScoreGive; // the value representing the minimum score given by a correct panel
 
     public bool IfLostRound;
     public bool canDisplayMenu;

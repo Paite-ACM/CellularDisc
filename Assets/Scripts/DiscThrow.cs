@@ -11,8 +11,8 @@ public class DiscThrow : MonoBehaviour
     [SerializeField]
     private Transform discSpawn, playerPos, curvePoint;
     private Rigidbody ballRB;
-    [SerializeField]
-    private float speed, returnSpeed;
+    
+    public float speed, returnSpeed;
     private bool throwReady, isReturning;
     private float time = 0.0f;
     public Vector3 oldPos;

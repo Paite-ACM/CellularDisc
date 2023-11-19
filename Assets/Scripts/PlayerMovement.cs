@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour
 {
     // movement
-    [SerializeField] private float movementSpeed;
+    public float movementSpeed;
     [SerializeField] private Transform orientation;
 
     private float horizontal;
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
 
     // jumping
-    [SerializeField] private float jumpForce;
+    public float jumpForce;
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     [SerializeField] private float jumpPadBoostModifier;
