@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public float score;
     public float combo;
+    public float highScore;
 
     [SerializeField] private float baseScoreGive; // the value representing the minimum score given by a correct panel
 
@@ -26,6 +27,19 @@ public class GameManager : MonoBehaviour
 
     public bool gameHasEnded;
 
+    private void Awake()
+    {
+        // save data management
+        if (SaveSystem.DoesPlayerFileExist())
+        {
+            LoadData();
+        }
+        else
+        {
+            SaveSystem.CreatePlayerFile(this);
+            SaveData();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -128,11 +142,11 @@ public class GameManager : MonoBehaviour
 
    // load player save data
    public void LoadData()
-    {
+   {
         PlayerData data = SaveSystem.LoadPlayer();
 
         score = data.score;
-    }
+   }
 
     // save player data
     public void SaveData()
