@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
     {
         changeColourTimer += Time.deltaTime;
 
+        GameFinished();
+
         if (!throwState.ThrowReady)
         {
             if (currentDisc == null)

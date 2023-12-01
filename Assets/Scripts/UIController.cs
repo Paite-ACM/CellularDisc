@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
     //Updates and displays the score
     public void UpdateScoreDisplay()
     {
-        ScoreDisplay.text = "Score:" + gameManager.score;
+        ScoreDisplay.text = "Score:" + gameManager.score.ToString("F0");
     }
 
     //Updates and displays the combo

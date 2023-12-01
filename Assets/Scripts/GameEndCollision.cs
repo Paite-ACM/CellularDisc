@@ -23,6 +23,7 @@ public class GameEndCollision : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             gameManager.gameHasEnded = true;
+            Debug.Log(gameManager.gameHasEnded);
         }
         
     }
