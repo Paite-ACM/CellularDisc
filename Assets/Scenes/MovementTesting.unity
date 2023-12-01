@@ -8130,6 +8130,16 @@ PrefabInstance:
       propertyPath: discSpawn
       value: 
       objectReference: {fileID: 378353125}
+    - target: {fileID: 5760618385813839440, guid: 33484e3fde701904bad5f17863d1a4e6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760618385813839440, guid: 33484e3fde701904bad5f17863d1a4e6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.57
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33484e3fde701904bad5f17863d1a4e6, type: 3}
 --- !u!1001 &8426574121169672824
