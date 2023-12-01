@@ -153,4 +153,10 @@ public class GameManager : MonoBehaviour
     {
         SaveSystem.SaveGame(this);
     }
+
+    //Will be used to take away score when upgrades are "brought"
+    public void ReducePoints(float reducedPoints)
+    {
+        score -= reducedPoints;
+    }
 }

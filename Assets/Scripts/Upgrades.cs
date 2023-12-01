@@ -22,16 +22,23 @@ public class Upgrades : MonoBehaviour
     public int upgradePointGainLimit;
     public int upgradePlayerJumpHeightLimit;
 
+    [Header("UpgradeText")]
+    public TextMeshProUGUI PlayerSpeedText;
+    public TextMeshProUGUI PointGainText;
+    public TextMeshProUGUI BallSpeedText;
+    public TextMeshProUGUI JumpHeightText;
+
     private void Awake()
     {
-        playerMovement = GetComponent<PlayerMovement>();
-        discThrow = GetComponent<DiscThrow>();
-        gameManager = GetComponent<GameManager>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        discThrow = GameObject.Find("Player").GetComponent<DiscThrow>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        
         upgradePlayerSpeed.onClick.AddListener(UpgradeMovementSpeed);
         upgradeBallSpeed.onClick.AddListener(UpgradeProjSpeed);
         upgradePointGain.onClick.AddListener(UpgradePointGain);
@@ -40,6 +47,10 @@ public class Upgrades : MonoBehaviour
         upgradePlayerJumpHeightLimit = 0;
         upgradePlayerSpeedLimit = 0;
         upgradePointGainLimit = 0;
+        canUpgradeBallSpeed = true;
+        canUpgradePlayerJumpHeight = true;
+        canUpgradePlayerSpeed = true;
+        canUpgradePointGain = true;
     }
 
     // Update is called once per frame
@@ -64,41 +75,57 @@ public class Upgrades : MonoBehaviour
         {
             canUpgradePointGain = false;
         }
+
+        DisplayUpgradeVariableText();
     }
 
     public void UpgradeMovementSpeed()
     {
-        if (canUpgradePlayerSpeed == true)
+        if (canUpgradePlayerSpeed == true && (gameManager.score >= 100f))
         {
-            playerMovement.movementSpeed *= 1.1f;
+            playerMovement.movementSpeed *= 1.05f;
             upgradePlayerSpeedLimit++;
+            gameManager.ReducePoints(100f);
+            
         }
     }
 
     public void UpgradeProjSpeed()
     {
-        if (canUpgradeBallSpeed == true)
+        if (canUpgradeBallSpeed == true && (gameManager.score >= 100f))
         {
-            discThrow.speed *= 1.1f;
+            discThrow.speed *= 1.05f;
             upgradeBallSpeedLimit++;
+            gameManager.ReducePoints(100f);
         }
     }
 
     public void UpgradePointGain()
     {    
-        if (canUpgradePointGain == true)
+        if (canUpgradePointGain == true && (gameManager.score >= 100f))
         { 
-            gameManager.baseScoreGive *= 1.1f;
+            gameManager.baseScoreGive *= 1.05f;
             upgradePointGainLimit++;
+            gameManager.ReducePoints(100f);
         }
     }
 
     public void UpgradeJumpHeight()
     {
-        if (canUpgradePlayerJumpHeight == true)
+        if (canUpgradePlayerJumpHeight == true && (gameManager.score >= 100f))
         {
-            playerMovement.jumpForce *= 1.1f;
+            playerMovement.jumpForce *= 1.03f;
             upgradePlayerJumpHeightLimit++;
+            gameManager.ReducePoints(100f);
         }
+    }
+
+    //Displays the variables in this script in a TextMesh pro text
+    public void DisplayUpgradeVariableText()
+    {
+        PlayerSpeedText.text = "Player Speed:" + playerMovement.movementSpeed.ToString("F2");
+        JumpHeightText.text = "Jump Height:" + playerMovement.jumpForce.ToString("F2");
+        BallSpeedText.text = "Ball Speed:" + discThrow.speed.ToString("F2");
+        PointGainText.text = "Base Score Gain:" + gameManager.baseScoreGive.ToString("F2");
     }
 }
