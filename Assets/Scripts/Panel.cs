@@ -56,11 +56,7 @@ public class Panel : MonoBehaviour
     {
         if (panelHealth <= 0f)
         {
-            for (int i = 0; i < gameManager.allPanels.Count; i++)
-            {
-                
-                Destroy(gameObject);
-            }
+            gameObject.SetActive(false);
         }
     }
 }
