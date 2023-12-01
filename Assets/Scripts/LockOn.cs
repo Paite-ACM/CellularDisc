@@ -8,9 +8,11 @@ public class LockOn : MonoBehaviour
     // MAKE CLASS A SINGLETON
     
     public List<GameObject> hitList = new List<GameObject>();
+    public DiscThrow throwB;
     [SerializeField] Transform rayOut;
     [SerializeField] LayerMask hitLayer;
     [SerializeField] float maxDist;
+    Coroutine cr;
 
     private void Update()
     {
@@ -23,10 +25,27 @@ public class LockOn : MonoBehaviour
             foreach (GameObject go in hitList)
             {
                 go.GetComponent<LockedOnVisual>().VisualMarker(false);
-                Destroy(go);
+                
             }
+
+            StartCoroutine(MoveToEnemyPositions());
             hitList.Clear();
         }
+    }
+
+    IEnumerator MoveToEnemyPositions()
+    {
+        for (int i = 0; i < hitList.Count; i++)
+        {
+            cr = StartCoroutine(GetEnemyPositions(i));
+            yield return cr;
+        }
+    }
+
+    IEnumerator GetEnemyPositions(int currentPos)
+    {
+        //throwB.newBall.transform.position
+        yield return null;
     }
 
     void FireRay()

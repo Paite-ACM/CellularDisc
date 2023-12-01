@@ -7,7 +7,7 @@ using UnityEngine;
 public class DiscThrow : MonoBehaviour
 {
     [SerializeField]
-    private GameObject discPrefab, newBall;
+    public GameObject discPrefab, newBall;
     [SerializeField]
     private Transform discSpawn, playerPos, curvePoint;
     private Rigidbody ballRB;
