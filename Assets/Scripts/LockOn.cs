@@ -22,7 +22,6 @@ public class LockOn : MonoBehaviour
         {
             foreach (GameObject go in hitList)
             {
-
                 go.GetComponent<LockedOnVisual>().VisualMarker(false);
                 Destroy(go);
             }
