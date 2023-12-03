@@ -18,6 +18,8 @@ public class DiscThrow : MonoBehaviour
     public Vector3 oldPos;
     public Camera cam;
 
+    public GameManager gameManager;
+
     public bool ThrowReady
     {
         get { return throwReady; }
@@ -27,6 +29,7 @@ public class DiscThrow : MonoBehaviour
     {
         throwReady = true;
         cam = Camera.main;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void Update()
@@ -34,6 +37,7 @@ public class DiscThrow : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && throwReady)
         {
             CreateAndThrowBall();
+            gameManager.canChangeNextBallColour = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && !throwReady)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI ComboDisplay;
 
     public GameManager gameManager;
+
+    public Image BallColourIndicator; //Is for showing what the next ball colour will be
+    
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +25,10 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         UpdateScoreDisplay();
         UpdateComboDisplay();
+        BallColourIndicator.color = gameManager.nextBallColour;
     }
 
 

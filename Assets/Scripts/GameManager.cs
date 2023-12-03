@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
 
     public bool gameHasEnded;
 
+    public Color32 nextBallColour;
+    public bool canChangeNextBallColour;
+
     private void Awake()
     {
         // save data management
@@ -53,6 +56,9 @@ public class GameManager : MonoBehaviour
         IfLostRound = false;
         canDisplayMenu = true;
         gameHasEnded = false;
+
+        nextBallColour = allColours[Random.Range(0, allColours.Length)];
+        canChangeNextBallColour = true;
     }
 
     public void SetColours()
@@ -72,23 +78,36 @@ public class GameManager : MonoBehaviour
 
         if (!throwState.ThrowReady)
         {
+
+
             if (currentDisc == null)
             {
                 currentDisc = FindObjectOfType<DiscBehaviour>().gameObject;
+
+                currentDisc.GetComponent<MeshRenderer>().material.color = nextBallColour;
+                
             }
         }
         else
         {
             currentDisc = null;
+
+        }
+
+        
+        if (canChangeNextBallColour == true)
+        {           
+            ChangeNextBallColour();
         }
 
         if (changeColourTimer > colourChangeTimerMax)
-        {   
+        {
             if (currentDisc != null)
             {
                 currentDisc.GetComponent<MeshRenderer>().material.color = allColours[Random.Range(0, allColours.Length)];
+
             }
-            
+
             // change all platform colours
             for (int i = 0; i < allPanels.Count; i++)
             {
@@ -97,8 +116,10 @@ public class GameManager : MonoBehaviour
 
             changeColourTimer = 0;
         }
+    
 
         //IncreaseScore();
+        
     }
 
     // will put every panel gameobject into the list
@@ -160,5 +181,13 @@ public class GameManager : MonoBehaviour
     public void ReducePoints(float reducedPoints)
     {
         score -= reducedPoints;
+    }
+
+    //Is used to keep nextBallColour as one colour instead of constantly updating
+    public void ChangeNextBallColour()
+    {
+        nextBallColour = allColours[Random.Range(0, allColours.Length)];
+
+        canChangeNextBallColour = false;
     }
 }
