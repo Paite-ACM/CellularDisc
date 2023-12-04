@@ -2004,7 +2004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455034577}
   m_LocalRotation: {x: 0.5000007, y: 0.49999928, z: -0.49999928, w: 0.5000007}
-  m_LocalPosition: {x: -1.63, y: 8.11, z: -11.96}
+  m_LocalPosition: {x: -1.63, y: 6.27, z: -11.96}
   m_LocalScale: {x: 4.1664, y: 0.20832, z: 4.1664}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2062,7 +2062,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc60f7970a4db534fbcba8b72e7b84a8, type: 2}
+  - {fileID: 2100000, guid: 1471255266e660d4db6911c60f2d4305, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3349,7 +3349,6 @@ MonoBehaviour:
   ComboDisplay: {fileID: 205042059}
   gameManager: {fileID: 1610157176}
   BallColourIndicator: {fileID: 1428927237}
-  discThrow: {fileID: 1789692536}
 --- !u!114 &882418073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4640,6 +4639,7 @@ MonoBehaviour:
   nextBallColour:
     serializedVersion: 2
     rgba: 0
+  canChangeNextBallColour: 0
 --- !u!1 &1688481876
 GameObject:
   m_ObjectHideFlags: 0
