@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private GameObject currentDisc;
     private DiscThrow throwState;
     public List<GameObject> allPanels;
+    public DiscThrow throwB;
 
     private float changeColourTimer;
     [SerializeField] private float colourChangeTimerMax; // the value the timer reaches when a colour change happens
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
 
             if (currentDisc == null)
             {
-                currentDisc = FindObjectOfType<DiscBehaviour>().gameObject;
+                currentDisc = throwB.newBall;
 
                 currentDisc.GetComponent<MeshRenderer>().material.color = nextBallColour;
                 

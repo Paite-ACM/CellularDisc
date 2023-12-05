@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class LockOn : MonoBehaviour
@@ -9,10 +10,16 @@ public class LockOn : MonoBehaviour
     
     public List<GameObject> hitList = new List<GameObject>();
     public DiscThrow throwB;
+    int currentHit = 0;
+    bool bailiffActive = false;
     [SerializeField] Transform rayOut;
     [SerializeField] LayerMask hitLayer;
     [SerializeField] float maxDist;
-    Coroutine cr;
+
+    private void Start()
+    {
+        throwB = FindObjectOfType<DiscThrow>();
+    }
 
     private void Update()
     {
@@ -27,25 +34,48 @@ public class LockOn : MonoBehaviour
                 go.GetComponent<LockedOnVisual>().VisualMarker(false);
                 
             }
+            bailiffActive = true;
+            StartCoroutine(BailiffMove());
+            //hitList.Clear();
 
-            StartCoroutine(MoveToEnemyPositions());
-            hitList.Clear();
+            Debug.Log(hitList.Count);
         }
     }
 
-    IEnumerator MoveToEnemyPositions()
+    IEnumerator BailiffMove()
     {
-        for (int i = 0; i < hitList.Count; i++)
+        while (bailiffActive)
         {
-            cr = StartCoroutine(GetEnemyPositions(i));
-            yield return cr;
-        }
-    }
+            if (hitList.Count != 0)
+            {
+                throwB.isReturning = false;
+                throwB.throwReady = false;
+                if (throwB.newBall = null)
+                {
+                    throwB.newBall = Instantiate(throwB.discPrefab, throwB.discSpawn.position, throwB.cam.transform.localRotation);
 
-    IEnumerator GetEnemyPositions(int currentPos)
-    {
-        //throwB.newBall.transform.position
-        yield return null;
+                    if (Vector3.Distance(throwB.newBall.transform.position, hitList[currentHit].transform.position) < 0.8f)
+                    {
+                        if (currentHit < hitList.Count - 1)
+                        {
+                            currentHit++;
+                        }
+                        else
+                        {
+                            throwB.RetrieveDisc();
+                            hitList.Clear();
+                            bailiffActive = false;
+                            break;
+                        }
+                        float t = 10 * Time.deltaTime;
+                        throwB.newBall.transform.position = Vector3.MoveTowards(throwB.newBall.transform.position, hitList[currentHit].transform.position, t);
+                    }
+                    yield return null;
+                }
+                yield return null;
+            }
+            yield return null;
+        }
     }
 
     void FireRay()

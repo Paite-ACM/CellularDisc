@@ -6,14 +6,12 @@ using UnityEngine;
 
 public class DiscThrow : MonoBehaviour
 {
-    [SerializeField]
     public GameObject discPrefab, newBall;
-    [SerializeField]
-    private Transform discSpawn, playerPos, curvePoint;
+    public Transform discSpawn, playerPos, curvePoint;
     private Rigidbody ballRB;
     
     public float speed, returnSpeed;
-    private bool throwReady, isReturning;
+    public bool throwReady, isReturning;
     private float time = 0.0f;
     public Vector3 oldPos;
     public Camera cam;
@@ -94,11 +92,12 @@ public class DiscThrow : MonoBehaviour
         oldPos = ballRB.position;
         ballRB.velocity = Vector3.zero;
         isReturning = true;
-        //ballRB.isKinematic = true;
-
-        //Destroy(newBall);
-        //throwReady = true;
     }
 
+    public void DrawTrajectory()
+    {
+        RaycastHit hit;
 
+
+    }
 }
