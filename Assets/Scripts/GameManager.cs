@@ -113,6 +113,9 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < allPanels.Count; i++)
             {
                 allPanels[i].GetComponent<MeshRenderer>().material.color = allColours[Random.Range(0, allColours.Length)];
+                Color32 panelColours = allPanels[i].GetComponent<MeshRenderer>().material.color;
+                panelColours.a = 220;
+                allPanels[i].GetComponent<MeshRenderer>().material.color = panelColours;
             }
 
             changeColourTimer = 0;

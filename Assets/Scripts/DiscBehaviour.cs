@@ -67,7 +67,9 @@ public class DiscBehaviour : MonoBehaviour
         {
             case "Panel":
                 // colour check
-                if (collision.gameObject.GetComponent<MeshRenderer>().material.color == GetComponent<MeshRenderer>().material.color)
+                if (collision.gameObject.GetComponent<MeshRenderer>().material.color.r == GetComponent<MeshRenderer>().material.color.r
+                && collision.gameObject.GetComponent<MeshRenderer>().material.color.g == GetComponent<MeshRenderer>().material.color.g
+                && collision.gameObject.GetComponent<MeshRenderer>().material.color.b == GetComponent<MeshRenderer>().material.color.b)
                 {
                     // colours match
                     Debug.Log("Colour match!");
