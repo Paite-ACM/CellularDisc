@@ -53,38 +53,40 @@ Shader "CellularDisc/InvertedNormalMapEffect"
             fixed4 frag (v2f input) : SV_Target
             {
                 // sample the texture
-                  float NormalTexx = sin(input.uv.x + _Time.x * 2);
-                float NormalTexy = cos(input.uv.y + _Time.y * 2);
-                 // float2 NormalUV = input.uv.x + _Time.x * 2, input.uv.y + _Time.y * 2;
+                float2 uv = input.uv;
+                float NormalTexx = sin(uv.x + _Time.x * 2);
+                float NormalTexy = cos(uv.y + _Time.y * 2);
+                
                 float2 NormalUV = float2(NormalTexx, NormalTexy);
-                  float2 NormalTex = tex2D(_NormalMap, input.uv * NormalUV).xy * 2;
+                float2 NormalTex = tex2D(_NormalMap, input.uv * NormalUV).xy * 2;
+                
                 
 
-               // NormalTex *= _NormalColour; 
-                //+ NormalTex
+                
+                // fixed4 col = tex2D(_MainTex, input.uv + NormalTex);   
+                
 
-                float2 uv = input.uv;
-               // fixed4 col = tex2D(_MainTex, input.uv + NormalTex);   
-               // col *= _MainColour;
+                NormalTex *=_MainColour;
 
-                float blur = 0.000005 / 10000;
+                float blur = 0.05;
 
                 float4 sum = float4(0,0,0,0);
-                sum += tex2D(_MainTex, float2(uv.x -4 * blur, uv.y -4 * blur)* 0.05);
-                sum += tex2D(_MainTex, float2(uv.x -3* blur, uv.y -3 * blur)* 0.09);
-                sum += tex2D(_MainTex, float2(uv.x -2* blur, uv.y -2 * blur)* 0.01);
-                 sum += tex2D(_MainTex, float2(uv.x -1* blur, uv.y -1 * blur)* 0.01);
+                sum += tex2D(_MainTex, float2(uv.x -4 * blur, uv.y -4 * blur)* 0.05 + NormalTex);
+                sum += tex2D(_MainTex, float2(uv.x -3* blur, uv.y -3 * blur)* 0.09 + NormalTex);
+                sum += tex2D(_MainTex, float2(uv.x -2* blur, uv.y -2 * blur)* 0.01 + NormalTex);
+                sum += tex2D(_MainTex, float2(uv.x -1* blur, uv.y -1 * blur)* 0.01 + NormalTex);
                 sum += tex2D(_MainTex, uv)* 0.5;
-                sum += tex2D(_MainTex, float2(uv.x +3* blur, uv.y +4 * blur)* 0.05);
-                sum += tex2D(_MainTex, float2(uv.x +2* blur, uv.y +2 * blur)* 0.05);
-                sum += tex2D(_MainTex, float2(uv.x +1 * blur, uv.y + 1 * blur)* 0.05);
+                sum += tex2D(_MainTex, float2(uv.x +4 * blur, uv.y + 4 * blur)* 0.05 + NormalTex);
+                sum += tex2D(_MainTex, float2(uv.x +3* blur, uv.y +4 * blur)* 0.05 + NormalTex);
+                sum += tex2D(_MainTex, float2(uv.x +2* blur, uv.y +2 * blur)* 0.05 + NormalTex);
+                sum += tex2D(_MainTex, float2(uv.x +1 * blur, uv.y + 1 * blur)* 0.05 + NormalTex);
 
             
                 
                  
 
                     //return col;   
-                   // sum *= NormalTex;
+                    
                     return sum;                 
             }
             ENDHLSL
