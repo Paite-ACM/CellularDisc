@@ -6,6 +6,7 @@ Shader "CellularDisc/InvertedNormalMapEffect"
         _NormalMap("Normal Map", 2D) = "white" {}
         
         _MainColour("Main Colour", Color) = (1,1,1,1)
+        _NormalColour("Normal Colour", Color) = (1,1,1,1)
     }
     SubShader
     {
@@ -14,7 +15,7 @@ Shader "CellularDisc/InvertedNormalMapEffect"
 
         Pass
         {
-            CGPROGRAM
+            HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
             
@@ -38,6 +39,7 @@ Shader "CellularDisc/InvertedNormalMapEffect"
             float4 _MainTex_ST;
             float4 _MainColour;
             sampler2D _NormalMap;
+            float4 _NormalColour;
 
             v2f vert (meshdata v)
             {
@@ -51,19 +53,41 @@ Shader "CellularDisc/InvertedNormalMapEffect"
             fixed4 frag (v2f input) : SV_Target
             {
                 // sample the texture
-                float2 NormalUV = float2(input.uv.x + _Time.x * 2, input.uv.y + _Time.y * 2);
-                float2 NormalTex = tex2D(_NormalMap, input.uv/ NormalUV).xy * 2;
+                  float NormalTexx = sin(input.uv.x + _Time.x * 2);
+                float NormalTexy = cos(input.uv.y + _Time.y * 2);
+                 // float2 NormalUV = input.uv.x + _Time.x * 2, input.uv.y + _Time.y * 2;
+                float2 NormalUV = float2(NormalTexx, NormalTexy);
+                  float2 NormalTex = tex2D(_NormalMap, input.uv * NormalUV).xy * 2;
                 
+
+               // NormalTex *= _NormalColour; 
+                //+ NormalTex
+
+                float2 uv = input.uv;
+               // fixed4 col = tex2D(_MainTex, input.uv + NormalTex);   
+               // col *= _MainColour;
+
+                float blur = 0.000005 / 10000;
+
+                float4 sum = float4(0,0,0,0);
+                sum += tex2D(_MainTex, float2(uv.x -4 * blur, uv.y -4 * blur)* 0.05);
+                sum += tex2D(_MainTex, float2(uv.x -3* blur, uv.y -3 * blur)* 0.09);
+                sum += tex2D(_MainTex, float2(uv.x -2* blur, uv.y -2 * blur)* 0.01);
+                 sum += tex2D(_MainTex, float2(uv.x -1* blur, uv.y -1 * blur)* 0.01);
+                sum += tex2D(_MainTex, uv)* 0.5;
+                sum += tex2D(_MainTex, float2(uv.x +3* blur, uv.y +4 * blur)* 0.05);
+                sum += tex2D(_MainTex, float2(uv.x +2* blur, uv.y +2 * blur)* 0.05);
+                sum += tex2D(_MainTex, float2(uv.x +1 * blur, uv.y + 1 * blur)* 0.05);
+
+            
                 
+                 
 
-                fixed4 col = tex2D(_MainTex, input.uv + NormalTex);   
-                col *= _MainColour;
-
-               // NormalTex.rgb = 1 - col.rgb; 
-
-                return col;
+                    //return col;   
+                   // sum *= NormalTex;
+                    return sum;                 
             }
-            ENDCG
+            ENDHLSL
         }
 
         Pass

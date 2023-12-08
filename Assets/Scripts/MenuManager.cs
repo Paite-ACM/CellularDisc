@@ -57,14 +57,14 @@ public class MenuManager : MonoBehaviour
     public void StartGameButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("cd_overdrive");
     }
 
 
     
     public void RetryButton()
     {
-        
+        SceneManager.LoadScene("cd_overdrive");
     }
 
     //Display Upgrades menu
@@ -92,10 +92,10 @@ public class MenuManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && gameManager.canDisplayMenu == true)
         {
             MenuUI.SetActive(true);
-            Time.timeScale = 0f;
-            gameManager.canDisplayMenu = false;
+            Time.timeScale = 0f;          
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            gameManager.canDisplayMenu = false;
         }
 
         /* While canDisplayMenu is false and the escape key is pressed,
@@ -105,11 +105,11 @@ public class MenuManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Escape) && gameManager.canDisplayMenu == false)
         {
             MenuUI.SetActive(false);
-            Time.timeScale = 1f;
-            gameManager.canDisplayMenu = true;
+            Time.timeScale = 1f;            
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             UpgradesMenu.SetActive(false);
+            gameManager.canDisplayMenu = true;
         }
     }
 
@@ -133,6 +133,14 @@ public class MenuManager : MonoBehaviour
 
     public void DisplayGameOver()
     {
+        MenuUI.SetActive(false);
+        UpgradesMenu.SetActive(false);
         GameOverScreen.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            MenuUI.SetActive(false);
+            UpgradesMenu.SetActive(false);
+        }
     }
 }

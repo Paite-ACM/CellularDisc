@@ -7141,7 +7141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &860520390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10733,7 +10733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1253804200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11481,7 +11481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allPanels: []
-  throwB: {fileID: 0}
+  throwB: {fileID: 344211792}
   colourChangeTimerMax: 5
   allColours: []
   score: 0
