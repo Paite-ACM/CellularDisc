@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     private DiscThrow throwState;
     public List<GameObject> allPanels;
     public DiscThrow throwB;
+    public TMP_Text gameTimerText;
 
     private float changeColourTimer;
     [SerializeField] private float colourChangeTimerMax; // the value the timer reaches when a colour change happens
@@ -18,7 +20,7 @@ public class GameManager : MonoBehaviour
     public float combo;
     public float highScore;
 
-   public float baseScoreGive; // the value representing the minimum score given by a correct panel
+    public float baseScoreGive; // the value representing the minimum score given by a correct panel
 
     public bool IfLostRound;
     public bool canDisplayMenu;
@@ -30,6 +32,9 @@ public class GameManager : MonoBehaviour
 
     public Color32 nextBallColour;
     public bool canChangeNextBallColour;
+
+    public float gameTimer = 60f;
+
 
     private void Awake()
     {
@@ -73,7 +78,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameTimer > 0)
+        {
+            gameTimer -= Time.deltaTime;
+        }
         changeColourTimer += Time.deltaTime;
+
+        UpdateTimer();
 
         GameFinished();
 
@@ -121,6 +132,10 @@ public class GameManager : MonoBehaviour
             changeColourTimer = 0;
         }
     
+        if (gameTimer <= 0)
+        {
+            GameEnded?.Invoke();
+        }
 
         //IncreaseScore();
         
@@ -193,5 +208,10 @@ public class GameManager : MonoBehaviour
         nextBallColour = allColours[Random.Range(0, allColours.Length)];
 
         canChangeNextBallColour = false;
+    }
+
+    public void UpdateTimer()
+    {
+        gameTimerText.text = gameTimer.ToString("F1");
     }
 }

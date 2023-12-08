@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DiscThrow : MonoBehaviour
 {
     public GameObject discPrefab, newBall;
     public Transform discSpawn, playerPos, curvePoint;
+    public TMP_Text cooldownText;
     private Rigidbody ballRB;
     
     public float speed, returnSpeed;
-    public bool throwReady, isReturning;
+    public float returnCooldown = 3f;
+    public bool throwReady, isReturning, isThrown;
     private float time = 0.0f;
     public Vector3 oldPos;
     public Camera cam;
@@ -26,19 +30,24 @@ public class DiscThrow : MonoBehaviour
     public void Start()
     {
         throwReady = true;
+        isThrown = false;
         cam = Camera.main;
         gameManager = FindObjectOfType<GameManager>();
     }
 
     public void Update()
     {
+        UpdateTimer();
+
         if (Input.GetKeyDown(KeyCode.Mouse0) && throwReady)
         {
             CreateAndThrowBall();
             gameManager.canChangeNextBallColour = true;
+            returnCooldown = 3f;
+            isThrown = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && !throwReady)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !throwReady && returnCooldown <= 0f)
         {
             RetrieveDisc();
         }
@@ -54,6 +63,11 @@ public class DiscThrow : MonoBehaviour
             {
                 ResetBall();
             }
+        }
+
+        if (isThrown && returnCooldown >= 0)
+        {
+            returnCooldown -= Time.deltaTime;
         }
     }
 
@@ -94,10 +108,15 @@ public class DiscThrow : MonoBehaviour
         isReturning = true;
     }
 
-    public void DrawTrajectory()
+    //public void DrawTrajectory()
+    //{
+    //    RaycastHit hit;
+
+
+    //}
+
+    public void UpdateTimer()
     {
-        RaycastHit hit;
-
-
+        cooldownText.text = "Cooldown: " + returnCooldown.ToString("F0");
     }
 }
