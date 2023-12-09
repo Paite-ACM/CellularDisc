@@ -15,9 +15,11 @@ public class MenuManager : MonoBehaviour
     public Button upgradesButton;
     public Button exitButton;
     public GameObject UpgradesMenu;
-    public Button backToMainMenuButton;
+    public Button backToPauseMenuButton;
     public GameObject GameOverScreen;
-    
+    public Button gameOverRetryButton; //Is for the retry button that appears for the game over screen  
+    public Button returnToMainMenuButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,9 @@ public class MenuManager : MonoBehaviour
         retryButton.onClick.AddListener(RetryButton);
         upgradesButton.onClick.AddListener(UpgradesButton);
         exitButton.onClick.AddListener(ExitButton);
-        backToMainMenuButton.onClick.AddListener(BackToMainMenu);
+        backToPauseMenuButton.onClick.AddListener(BackToPauseMenu);
+        gameOverRetryButton.onClick.AddListener(ReturnToMainMenu);
+        returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
         GameOverScreen.SetActive(false);
     }
 
@@ -114,7 +118,7 @@ public class MenuManager : MonoBehaviour
     }
 
     //The button assigned to this function is on the Upgrades Menu and when clicked, will return the player to the Main Menu
-    public void BackToMainMenu()
+    public void BackToPauseMenu()
     {
         MenuUI.SetActive(true);
         UpgradesMenu.SetActive(false);
@@ -142,5 +146,10 @@ public class MenuManager : MonoBehaviour
             MenuUI.SetActive(false);
             UpgradesMenu.SetActive(false);
         }
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

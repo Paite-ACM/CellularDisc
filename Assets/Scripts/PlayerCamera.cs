@@ -38,4 +38,23 @@ public class PlayerCamera : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
         //theGun.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
+
+    public void StopPlayerLooking()
+    {
+        xSensitivity = 0f;
+        ySensitivity = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+
+    private void OnEnable()
+    {
+        GameManager.GameEnded += StopPlayerLooking;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.GameEnded -= StopPlayerLooking;
+    }
 }

@@ -1,4 +1,4 @@
-Shader "CellularDisc/InvertedNormalMapEffect"
+Shader "CellularDisc/AnimatedNormalMapWithGaussianBlur"
 {
     Properties
     {
@@ -71,11 +71,15 @@ Shader "CellularDisc/InvertedNormalMapEffect"
                 float blur = 0.05;
 
                 float4 sum = float4(0,0,0,0);
+                sum += tex2D(_MainTex, float2(uv.x -5 * blur, uv.y -5 * blur)* 0.05 + NormalTex);
                 sum += tex2D(_MainTex, float2(uv.x -4 * blur, uv.y -4 * blur)* 0.05 + NormalTex);
                 sum += tex2D(_MainTex, float2(uv.x -3* blur, uv.y -3 * blur)* 0.09 + NormalTex);
                 sum += tex2D(_MainTex, float2(uv.x -2* blur, uv.y -2 * blur)* 0.01 + NormalTex);
                 sum += tex2D(_MainTex, float2(uv.x -1* blur, uv.y -1 * blur)* 0.01 + NormalTex);
                 sum += tex2D(_MainTex, uv)* 0.5;
+                sum += tex2D(_MainTex, float2(uv.x +7 * blur, uv.y + 7 * blur)* 0.05 + NormalTex);
+                sum += tex2D(_MainTex, float2(uv.x +6 * blur, uv.y + 6 * blur)* 0.05 + NormalTex);
+                sum += tex2D(_MainTex, float2(uv.x +5 * blur, uv.y + 5 * blur)* 0.05 + NormalTex);
                 sum += tex2D(_MainTex, float2(uv.x +4 * blur, uv.y + 4 * blur)* 0.05 + NormalTex);
                 sum += tex2D(_MainTex, float2(uv.x +3* blur, uv.y +4 * blur)* 0.05 + NormalTex);
                 sum += tex2D(_MainTex, float2(uv.x +2* blur, uv.y +2 * blur)* 0.05 + NormalTex);

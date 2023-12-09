@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3419,8 +3419,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 860520390}
-  m_RootOrder: 1
+  m_Father: {fileID: 1248343728}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3606,7 +3606,7 @@ GameObject:
   - component: {fileID: 416013792}
   - component: {fileID: 416013791}
   m_Layer: 5
-  m_Name: BackToMainMenuButton
+  m_Name: BackToPauseMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6190,8 +6190,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 860520390}
-  m_RootOrder: 4
+  m_Father: {fileID: 1248343728}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7075,7 +7075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &860520390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7089,10 +7089,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1248343728}
-  - {fileID: 379595753}
-  - {fileID: 1699713068}
-  - {fileID: 869504409}
-  - {fileID: 777676614}
   m_Father: {fileID: 1137183046}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7228,8 +7224,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 860520390}
-  m_RootOrder: 3
+  m_Father: {fileID: 1248343728}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9628,8 +9624,10 @@ MonoBehaviour:
   upgradesButton: {fileID: 517595848}
   exitButton: {fileID: 424698004}
   UpgradesMenu: {fileID: 860520389}
-  backToMainMenuButton: {fileID: 416013791}
+  backToPauseMenuButton: {fileID: 416013791}
   GameOverScreen: {fileID: 948280665}
+  gameOverRetryButton: {fileID: 1791385449}
+  returnToMainMenuButton: {fileID: 876926665}
 --- !u!114 &1137183042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10422,6 +10420,10 @@ RectTransform:
   - {fileID: 1341538900}
   - {fileID: 180253254}
   - {fileID: 2014033501}
+  - {fileID: 379595753}
+  - {fileID: 1699713068}
+  - {fileID: 869504409}
+  - {fileID: 777676614}
   m_Father: {fileID: 860520390}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13824,8 +13826,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 860520390}
-  m_RootOrder: 2
+  m_Father: {fileID: 1248343728}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14644,7 +14646,7 @@ GameObject:
   - component: {fileID: 1791385450}
   - component: {fileID: 1791385449}
   m_Layer: 5
-  m_Name: RetryButton (1)
+  m_Name: RetryGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
