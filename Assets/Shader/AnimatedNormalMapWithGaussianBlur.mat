@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: InvertedNormalMapMaterial
+  m_Name: AnimatedNormalMapWithGaussianBlur
   m_Shader: {fileID: 4800000, guid: ab8eb52cdd12f644fbd92f6e96433e74, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
